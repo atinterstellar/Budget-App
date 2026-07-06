@@ -2,6 +2,25 @@ import json
 import os
 
 categories = []
+class master:
+    def __init__(self) :
+        self.balance = 0
+        for i in categories :
+            self.balance += i.balance
+        self.master_ledger = []
+
+    def deposit_master(self,amount) :
+        perc = 100
+        for i in categories:
+            print(f' To {i}')
+            trans = int(input(f'Enter percentage ( max = {perc} ) to be transferred : '))
+            if trans <= perc :
+                i.deposit(amount*trans/100, 'Master Deposit')
+                perc -= trans
+                print(f'{trans}% of {amount} added to {i}')
+                self.master_ledger.append({ 'amount' : -amount , 'description' : f'To {i}' })
+
+
 
 class Category:
     def __init__(self, name):
