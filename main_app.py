@@ -1,6 +1,27 @@
 import json
 import os
 
+def add_to_file(category):
+    if os.path.exists('budget.json'):
+        with open('budget.json', 'r') as f:
+            data = json.load(f)
+    else:
+        data = {}
+
+    data[category.name] = {'ledger': category.ledger}
+    
+    with open('budget.json', 'w') as f:
+        json.dump(data, f, indent=4)
+
+def read_file(category):
+    if os.path.exists('budget.json'):
+        with open('budget.json', 'r') as f:
+            data = json.load(f)
+            if category.name in data:
+                category.ledger = data[category.name]['ledger']
+            else:
+                category.ledger = []
+
 categories = []
 
 class Category:
@@ -54,8 +75,6 @@ class Category:
             if i['amount'] > 0:
                 print(f"{i['description']}: {i['amount']}")
         
-    
-
 def total_balance():
     total = 0
     for category in categories:
