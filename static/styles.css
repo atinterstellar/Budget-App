@@ -1,0 +1,26 @@
+body{
+    background-color: #e3e2ff;
+}
+.centered-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    color:#5E1100;
+    text-align: center;
+}
+h2{
+    color: #830200;
+}
+button{
+    background-color: #ffdbc4;
+}
+button{
+    width: 100%;
+    transition: 0.2s;
+}
+button{
+    transform: scale(1.1);
+}
