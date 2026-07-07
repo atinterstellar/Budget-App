@@ -15,12 +15,11 @@ class master:
             print(f' To {i}')
             trans = int(input(f'Enter percentage ( max = {perc} ) to be transferred : '))
             if trans <= perc :
-                i.deposit(amount*trans/100, 'Master Deposit')
+                per_cat = trans*amount/100
+                i.deposit(per_cat, 'Master Deposit')
                 perc -= trans
-                print(f'{trans}% of {amount} added to {i}')
-                self.master_ledger.append({ 'amount' : -amount , 'description' : f'To {i}' })
-
-
+                print(f'{trans}% of {amount} added to {i.name}')
+                self.master_ledger.append({ 'amount' : -per_cat , 'description' : f'To {i.name}' })
 
 class Category:
     def __init__(self, name):
