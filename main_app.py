@@ -27,11 +27,17 @@ categories = []
 class Category:
     def __init__(self, name):
         self.name = name
-        self.ledger = []
+        read_file(self)
         self.balance = 0
+        for i in self.ledger:
+            self.balance += i['amount']
         categories.append(self)
 
     def deposit(self, amount, description=""):
+        if amount < 0:
+            return "Amount can't be -ve"
+        if not isinstance(amount ,int ):
+            return "Amount must be integer"
         self.ledger.append({"amount": amount, "description": description})
         self.balance += amount
         add_to_file(self)
@@ -45,15 +51,12 @@ class Category:
         return False
 
     def get_balance(self):
-        read_file(self)
         return self.balance
 
     def transfer(self, amount, category):
         if self.check_funds(amount):
             self.withdraw(amount, f"Transfer to {category.name}")
             category.deposit(amount, f"Transfer from {self.name}")
-            add_to_file(self)
-
             return True
         return False
 
@@ -68,14 +71,14 @@ class Category:
         for entry in self.ledger:
             print(f"{entry['description']}: {entry['amount']}")
 
-    def view_payements(self):
+    def view_payments(self):
         print(f'Payments for {self.name}')
         for i in self.ledger:
             if i['amount'] < 0:
                 print(f"{i['description']}: {i['amount']}")
 
     def view_credits(self):
-        print(f'Credist for {self.name}')
+        print(f'Credits for {self.name}')
         for i in self.ledger:
             if i['amount'] > 0:
                 print(f"{i['description']}: {i['amount']}")
