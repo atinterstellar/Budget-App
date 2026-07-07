@@ -21,6 +21,8 @@ def read_file(category):
                 category.ledger = data[category.name]['ledger']
             else:
                 category.ledger = []
+    else:
+        category.ledger = []
 
 categories = []
 class master:
@@ -157,4 +159,6 @@ def view_expenses_by_perc() :
         perc= cat.get_exp() * 100 / total
         print(f'{cat.name} : {perc} ')
 
+food = Category('Food')
+rent = Category('rent')
 
