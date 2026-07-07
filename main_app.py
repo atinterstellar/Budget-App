@@ -34,26 +34,31 @@ class Category:
     def deposit(self, amount, description=""):
         self.ledger.append({"amount": amount, "description": description})
         self.balance += amount
+        add_to_file(self)
 
     def withdraw(self, amount, description=""):
         if self.check_funds(amount):
             self.ledger.append({"amount": -amount, "description": description})
             self.balance -= amount
+            add_to_file(self)
             return True
         return False
 
     def get_balance(self):
+        read_file(self)
         return self.balance
 
     def transfer(self, amount, category):
         if self.check_funds(amount):
             self.withdraw(amount, f"Transfer to {category.name}")
             category.deposit(amount, f"Transfer from {self.name}")
+            add_to_file(self)
+
             return True
         return False
 
     def check_funds(self, amount):
-        return amount <= self.balance
+        return amount <= self.get_balance()
 
     def view_balance(self):
         print(self.get_balance())
