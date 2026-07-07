@@ -54,7 +54,7 @@ class Category:
     def deposit(self, amount, description=""):
         if amount < 0:
             return "Amount can't be -ve"
-        if not isinstance(amount ,int ):
+        if not isinstance(amount , (int , float) ):
             return "Amount must be integer"
         self.ledger.append({"amount": amount, "description": description})
         self.balance += amount
@@ -100,19 +100,34 @@ class Category:
         for i in self.ledger:
             if i['amount'] > 0:
                 print(f"{i['description']}: {i['amount']}")
+
+    def get_exp(self):
+        exp = 0
+        for entry in self.ledger:
+            if entry['amount'] < 0:
+                exp -= entry['amount']
+        return exp
         
 def total_balance():
-    total = 0
-    for category in categories:
-        total += category.get_balance()
-    return total
+    return master.balance
 
 def view_all_payments():
+    total_exp = 0
     for category in categories :
         print(f"Payments for {category.name}:")
         for i in category.ledger :
             if i['amount'] < 0:
+                total_exp = total_exp - i['amount']
                 print(f"{i['description']}: {i['amount']}")
+    print(total_exp)
+
+def get_total_exp() :
+    total = 0
+    for category in categories :
+        for i in category.ledger :
+            if i['amount'] < 0:
+                total = total - i['amount']
+    return total
 
 def view_all_credits():
     for category in categories :
@@ -120,4 +135,26 @@ def view_all_credits():
         for i in category.ledger :
             if i['amount'] > 0:
                 print(f"{i['description']}: {i['amount']}")
+
+def view_perc_bal() :
+    m_bal = master.balance
+    for cat in categories:
+        perc = (cat.balance * 100)/m_bal
+        print(f'{cat.name} : {perc}')
+
+def view_expenses() :
+    total = 0
+    print('Expenses')
+    for cat in categories:
+        print(f'{cat.name} : {cat.get_exp()} ')
+        total += cat.get_exp()
+    print(f'Total Expense : {total}')
+    
+def view_expenses_by_perc() :
+    total = get_total_exp()
+    print('Expenses by percentage')
+    for cat in categories:
+        perc= cat.get_exp() * 100 / total
+        print(f'{cat.name} : {perc} ')
+
 
