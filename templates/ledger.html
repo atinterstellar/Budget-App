@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lange="en">
+    <head>
+        <title> Ledger - Budget App </title>
+    </head>
+    <body>
+        <h1>
+            Select Category
+        </h1>
+        {% for category in categories %}
+        <h2>
+            <a href=>{{category.name}}</a>
+        </h2>
+        {% endfor %}
+    </body>
+</html>

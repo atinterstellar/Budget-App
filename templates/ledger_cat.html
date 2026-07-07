@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lange="en">
+    <head>
+        <title> Ledgers - Budget App </title>
+    </head>
+    <body>
+        <h1>
+            Ledger for {{Category.name}}
+        </h1>
+        {% for entry in category.ledger %}
+            <h2> Amount : {{entry.amount}} , Description : {{entry.description}} </h2>
+    </body>
+</html>
