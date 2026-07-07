@@ -2,15 +2,22 @@
 <html lange="en">
     <head>
         <title> Ledger - Budget App </title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     </head>
     <body>
-        <h1>
-            Select Category
-        </h1>
-        {% for category in categories %}
-        <h2>
-            <a href=>{{category.name}}</a>
-        </h2>
-        {% endfor %}
+        <div class="centered-box">
+            <h1>
+                Select Category to Display Ledger
+            </h1>
+            <h2 >
+                Categories:
+            </h2>
+            {% for category in categories %}
+            <form action="/ledger" method="POST">
+                <input name="color" type="radio" value={{category.name}}> {{category.name}}
+            {% endfor %}
+                <button type="submit">Select</button>
+            </form>
+        </div>
     </body>
 </html>

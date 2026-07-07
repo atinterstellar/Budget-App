@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import main_app
 
 app = Flask(__name__)
@@ -8,8 +8,12 @@ app = Flask(__name__)
 def home():
     return render_template('home_page.html')
 
-@app.route('/ledger')
+chosen = None
+
+@app.route('/ledger' , methods = ['GET' , 'POST'])
 def ledger():
+    if request.method == 'POST':
+        chosen = request.form.get("category")
     return render_template('ledger.html', categories = main_app.categories)
 
 @app.route('/cat-ledger')

@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lange="en">
     <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
         <title> Home - Budget App </title>
     </head>
     <body>
-        <h1>
-            Budget App 
-        </h1>
-        <h2>
-            Welcome!!
-        </h2>
+        <div class="'centered-box">
+            <h1>
+                Budget App 
+            </h1>
+            <h2>
+                Welcome!!
+            </h2>
+            <h3>What do you want to do??</h3>
+            <button>
+                <a href="{{ url_for('ledger') }}"">View Ledger</a>
+            </button>
+        </div>
     </body>
 </html>

@@ -27,10 +27,10 @@ def read_file(category):
 categories = []
 class master:
     def __init__(self) :
-        self.balance = 0
-        for i in categories :
-            self.balance += i.balance
         self.master_ledger = []
+
+    def total_balance(self):
+        return sum(cat.balance for cat in self.categories.values())
 
     def deposit_master(self,amount) :
         perc = 100
