@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lange="en">
+<html lang="en">
     <head>
         <title> Ledger - Budget App </title>
         <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
@@ -12,11 +12,11 @@
             <h2 >
                 Categories:
             </h2>
-            {% for category in categories %}
             <form action="/ledger" method="POST">
-                <input name="color" type="radio" value={{category.name}}> {{category.name}}
-            {% endfor %}
-                <button type="submit">Select</button>
+                {% for category in categories %}
+                    <input name="category" type="radio" value= "{{category.name}}" > {{category.name}}
+                {% endfor %}
+                <button type="submit"> SELECT </button>
             </form>
         </div>
     </body>

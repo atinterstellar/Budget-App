@@ -1,26 +1,30 @@
 body{
-    background-color: #e3e2ff;
+    background-color: #fdfbfc;
 }
 .centered-box {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 h1{
-    color:#5E1100;
+    color:#312c58;
     text-align: center;
 }
 h2{
-    color: #830200;
+    color:#312c58;
+    text-align: center;
 }
-button{
-    background-color: #ffdbc4;
+h3{
+    color:#312c58;
+    text-align: center;
 }
-button{
-    width: 100%;
-    transition: 0.2s;
+button{    
+    background-color:#cbc2c8;
 }
-button{
-    transform: scale(1.1);
+.button-row {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
 }

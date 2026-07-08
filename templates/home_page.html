@@ -5,7 +5,7 @@
         <title> Home - Budget App </title>
     </head>
     <body>
-        <div class="'centered-box">
+        <div class="centered-box">
             <h1>
                 Budget App 
             </h1>
@@ -13,9 +13,12 @@
                 Welcome!!
             </h2>
             <h3>What do you want to do??</h3>
-            <button>
-                <a href="{{ url_for('ledger') }}"">View Ledger</a>
-            </button>
+            <div class="button-row">
+                <button><a href="{{ url_for('ledger') }}">View Ledger</a></button>
+                <button>Deposit</button>
+                <button>Withdraw</button>
+                <button>View Balance</button>
+            </div>
         </div>
     </body>
 </html>

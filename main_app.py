@@ -158,7 +158,14 @@ def view_expenses_by_perc() :
     for cat in categories:
         perc= cat.get_exp() * 100 / total
         print(f'{cat.name} : {perc} ')
+Food = Category('Food')
+rent = Category('Rent')
+Food.deposit(1000,'testing')
 
-food = Category('Food')
-rent = Category('rent')
+#--------SERVER CODE--------#
 
+def get_category(name):
+    for cat in categories:
+        if cat.name == name:
+            return cat
+    return None

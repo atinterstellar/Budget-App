@@ -6,9 +6,10 @@
     </head>
     <body>
         <h1>
-            Ledger for {{Category.name}}
+            Ledger for {{chosen.name}}
         </h1>
-        {% for entry in category.ledger %}
+        {% for entry in chosen.ledger %}
             <h2> Amount : {{entry.amount}} , Description : {{entry.description}} </h2>
+        {% endfor %}
     </body>
 </html>
