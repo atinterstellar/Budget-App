@@ -16,8 +16,21 @@
             <div class="button-row">
                 <button><a href="{{ url_for('ledger') }}">View Ledger</a></button>
                 <button><a href="{{url_for('deposit') }}">Deposit</a></button>
-                <button>Withdraw</button>
-                <button>View Balance</button>
+                <button><a href="{{url_for('transaction_from') }}">Withdraw</a></button>
+                <button><a href="{{url_for('bal')}}">View Balance</a></button>
+            </div>
+        </div>
+        <div class="centered-box">
+            <h2>
+                Master Account Options
+            </h2>
+        </div>
+        <br></br>
+        <div class="centered-box">
+            <h3>About</h3>
+            <div class="button-row">
+                <button><a href="https://github.com/atinterstellar">GitHub</a></button>
+                <button><a href="https://www.linkedin.com/in/atin-kumar-7185162a5/">Linkedin</a></button>
             </div>
         </div>
     </body>

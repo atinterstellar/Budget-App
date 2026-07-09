@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> Get Balance - Budget App </title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    </head>
+    <body>
+        <div class="centered-box">
+            <h1>
+                Select Category
+            </h1>
+            <h2>
+                Categories : 
+            </h2>
+            <form action="/bal" method="POST">
+                {% for category in categories %}
+                    <input name="category" type="radio" value= "{{category.name}}" > {{category.name}}
+                {% endfor %}
+                <button type="submit"> SELECT </button>
+            </form>
+        </div>
+    </body>
+</html>

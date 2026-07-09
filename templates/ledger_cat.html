@@ -5,11 +5,19 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     </head>
     <body>
-        <h1>
-            Ledger for {{chosen.name}}
-        </h1>
-        {% for entry in chosen.ledger %}
-            <h2> Amount : {{entry.amount}} , Description : {{entry.description}} </h2>
-        {% endfor %}
+        <div class="centered-box">
+            <h1>
+                Ledger for {{chosen.name}}
+            </h1>
+            {% for entry in chosen.ledger %}
+                <h2> Amount : {{entry.amount}} , Description : {{entry.description}} </h2>
+            {% endfor %}
+            <h2>
+                Return Home
+            </h2>
+            <button>
+                <a href="{{url_for('home')}}">HOME</a>
+            </button>
+        </div>
     </body>
 </html>
