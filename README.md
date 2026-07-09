@@ -45,9 +45,9 @@ The Python/JSON side is in decent shape at this point. Next up is wrapping it in
 Budget-App/
 ├── main_app.py        # core logic — categories, deposits, transfers, etc.
 ├── budget.json         # gets created automatically once you run it
-├── app.py              # Flask app (not built yet)
-├── templates/           # HTML pages (not built yet)
-├── static/               # CSS/JS (not built yet)
+├── app.py              # Flask app 
+├── templates/           # HTML pages 
+├── static/               # CSS
 └── README.md
 ```
 
