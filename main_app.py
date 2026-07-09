@@ -160,7 +160,6 @@ def view_expenses_by_perc() :
         print(f'{cat.name} : {perc} ')
 Food = Category('Food')
 rent = Category('Rent')
-Food.deposit(1000,'testing')
 
 #--------SERVER CODE--------#
 
