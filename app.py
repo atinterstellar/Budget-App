@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request,  redirect, url_for
 import main_app
+from main_app import Master
 
 app = Flask(__name__)
 
@@ -72,6 +73,11 @@ def bal_cat():
     chosen = main_app.get_category(name)
     balance = chosen.get_balance()
     return render_template('bal_cat.html' , balance = balance, chosen = chosen)
+
+@app.route('/master_balance')
+def master_balance():
+    balance = Master.total_balance()
+    return render_template('master_balance.html' , balance = balance)
     
 if __name__ == '__main__' :
     app.run(host = '0.0.0.0' , port = 5101 , debug = True)

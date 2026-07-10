@@ -26,8 +26,10 @@ def read_file(category):
 
 categories = []
 class master:
-    def __init__(self) :
+    def __init__(self, name) :
+        self.name = name
         self.master_ledger = []
+        self.savings = 0
 
     def total_balance(self):
         return sum(cat.balance for cat in self.categories.values())
@@ -43,6 +45,12 @@ class master:
                 perc -= trans
                 print(f'{trans}% of {amount} added to {i.name}')
                 self.master_ledger.append({ 'amount' : -per_cat , 'description' : f'To {i.name}' })
+
+    def save(self, amount) :
+        self.savings += amount
+
+    def view_savings(self) :
+        return self.savings
 
 class Category:
     def __init__(self, name):
@@ -109,9 +117,6 @@ class Category:
             if entry['amount'] < 0:
                 exp -= entry['amount']
         return exp
-        
-def total_balance():
-    return master.balance
 
 def view_all_payments():
     total_exp = 0
@@ -160,6 +165,8 @@ def view_expenses_by_perc() :
         print(f'{cat.name} : {perc} ')
 Food = Category('Food')
 rent = Category('Rent')
+
+Master = master('Master')
 
 #--------SERVER CODE--------#
 
