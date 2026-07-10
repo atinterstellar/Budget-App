@@ -12,7 +12,7 @@
             <h2>
                 Welcome!!
             </h2>
-            <h3>What do you want to do??</h3>
+            <h2>Category Options</h2>
             <div class="button-row">
                 <button><a href="{{ url_for('ledger') }}">View Ledger</a></button>
                 <button><a href="{{url_for('deposit') }}">Deposit</a></button>
@@ -20,16 +20,17 @@
                 <button><a href="{{url_for('bal')}}">View Balance</a></button>
             </div>
         </div>
+        <br></br>
         <div class="centered-box">
             <h2>
-                Master Account Options
+                Master Account
             </h2>
             <div class="button-row">
                 <button><a href="{{ url_for('master_balance') }}">View Balance</a></button>
                 <button><a href="{{url_for('deposit') }}">Deposit</a></button>
-                <button><a href="{{url_for('bal')}}">Add Savings</a></button>
-                <button><a href="{{url_for('bal')}}">View Savings</a></button>
-
+                <button><a href="{{url_for('add_sav')}}">Add Savings</a></button>
+                <button><a href="{{url_for('view_sav')}}">View Savings</a></button>
+                <button><a href="{{url_for('with_sav')}}">Withdraw Savings</a></button>    
             </div>
         </div>
         <br></br>

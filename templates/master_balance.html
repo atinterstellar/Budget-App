@@ -4,6 +4,7 @@
         <title>
             Total Balance - Budget App
         </title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     </head>
     <body>
         <div class="centered-box">
@@ -13,5 +14,7 @@
             <h2>
                 {{balance}} 
             </h2>
+            <br></br>
+            <button><a href="{{url_for('home')}}">HOME</a></button>
     </body>
 </html>

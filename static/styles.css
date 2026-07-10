@@ -22,6 +22,8 @@ h3{
 }
 button{    
     background-color:#cbc2c8;
+    font-size: 1.15rem;       /* Enlarges the text inside */
+    padding: 5px 10px;
 }
 button{
     transition : 0.2s

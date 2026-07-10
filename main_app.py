@@ -24,15 +24,40 @@ def read_file(category):
     else:
         category.ledger = []
 
+def add_master_to_file(m):
+    if os.path.exists('budget.json'):
+        with open('budget.json', 'r') as f:
+            data = json.load(f)
+    else:
+        data = {}
+
+    data['__master__'] = {
+        'savings': m.savings,
+        'master_ledger': m.master_ledger
+    }
+
+    with open('budget.json', 'w') as f:
+        json.dump(data, f, indent=4)
+
+def read_master_from_file(m):
+    if os.path.exists('budget.json'):
+        with open('budget.json', 'r') as f:
+            data = json.load(f)
+            if '__master__' in data:
+                m.savings = data['__master__']['savings']
+                m.master_ledger = data['__master__']['master_ledger']
+                return
+    m.savings = 0
+    m.master_ledger = []
+
 categories = []
 class master:
     def __init__(self, name) :
         self.name = name
-        self.master_ledger = []
-        self.savings = 0
+        read_master_from_file(self)
 
     def total_balance(self):
-        return sum(cat.balance for cat in self.categories.values())
+        return sum(cat.balance for cat in categories)
 
     def deposit_master(self,amount) :
         perc = 100
@@ -48,9 +73,14 @@ class master:
 
     def save(self, amount) :
         self.savings += amount
+        add_master_to_file(self)
 
     def view_savings(self) :
         return self.savings
+    
+    def with_sav(self,amount) :
+        self.savings -= amount
+        add_master_to_file(self)
 
 class Category:
     def __init__(self, name):

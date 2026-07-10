@@ -78,6 +78,27 @@ def bal_cat():
 def master_balance():
     balance = Master.total_balance()
     return render_template('master_balance.html' , balance = balance)
-    
+
+@app.route('/add_sav', methods = ['GET','POST'])
+def add_sav() :
+    if request.method == 'POST':
+        amount = request.form.get("amount")
+        Master.save(float(amount))
+        return redirect(url_for('view_sav'))
+    return render_template('add_sav.html')
+
+@app.route('/view_sav')
+def view_sav() :
+    savings = Master.view_savings()
+    return render_template('view_sav.html' , savings = savings)
+
+@app.route('/with_sav', methods = ['GET','POST'])
+def with_sav():
+    if request.method == 'POST':
+        amount = request.form.get("amount")
+        Master.with_sav(float(amount))
+        return redirect(url_for('view_sav'))
+    return render_template('with_sav.html')
+
 if __name__ == '__main__' :
     app.run(host = '0.0.0.0' , port = 5101 , debug = True)
