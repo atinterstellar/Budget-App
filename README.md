@@ -2,13 +2,13 @@
 
 A personal finance tracker I'm building from scratch — starting with plain Python and a JSON file, and eventually turning it into a real web app with Flask, HTML, and CSS.
 
-## Why I'm building this
+## Why I have built this
 
 I started this right as I was heading into college. Suddenly budgeting isn't hypothetical anymore — it's tuition, stationaries, groceries, eating out, going out with friends, all of it adding up fast if you're not paying attention. I wanted something that could actually help me keep track of that, but instead of just downloading an app, I figured I'd build my own. Partly because I'd end up with something I actually understand and can tweak, and partly because I knew building it would force me to actually learn this stuff properly instead of just watching tutorials.
 
 So this is equal parts "tool I use for my own money" and "project I'm using to learn Python, Git, and web dev." It's not finished, and it's not perfect — it's grown a lot through a bunch of rounds of bugs and rewrites, which honestly has been most of the learning.
 
-## What it does right now
+## What it does
 
 ### The Main Python Code
   - You can create categories (Groceries, Rent, whatever) and each one keeps its own running balance and transaction history
@@ -29,7 +29,8 @@ So this is equal parts "tool I use for my own money" and "project I'm using to l
 
 ## What's next
 
-The Python/JSON side is in decent shape at this point. Next up is wrapping it in a Flask server so it can actually run in a browser instead of the terminal, then building out HTML/CSS so it looks like something a normal person would want to use. After that, I want to add a spending breakdown — probably a simple bar chart showing how much went where.
+The basic and most important functions have been succesfully implemented for the succesful use of this project. It can succesfully track all my my expenses, balance, savings etc. succefully, saving me alot of time that i would have spent on manual entries on some spreadhseet or writing all it in my diary.
+Extra functions that will complete and improve this ptoject are to implemented (I have already added them in main_app.py), such as View credits, View expenses etc.
 
 ## Tech I'm using
 
@@ -58,8 +59,6 @@ git clone https://github.com/atinterstellar/Budget-App.git
 cd Budget-App
 python main_app.py
 ```
-
-Once the Flask side exists, you'll be able to run `python app.py` and open it at `localhost:5000` instead.
 
 ## A bit about me
 
