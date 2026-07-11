@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+    <title>GUIDE - Budget App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<Body>
+    <div class="centered-box">
+        <h1>Your Guide to Budgeting</h1>
+        <br></br>
+        <ul>
+            <li> Savings : 20 %</li>
+            <li> Food : 15 %</li>
+            <li> Social : 20 %</li>
+            <li> Commute : 10 %</li>
+            <li> Academic : 10 %</li>
+            <li> Buffer : 15 %</li>
+            <li> Care : 3 %</li>
+            <li> Subscription : 2 %</li>
+            <li> Clothing : 5 %</li>
+        </ul>
+        <br></br>
+        <button><a href="{{url_for('home')}}">Home</a> </button>
+    </div>
+</Body>

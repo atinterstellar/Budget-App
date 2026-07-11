@@ -6,18 +6,10 @@
     </head>
     <body>
         <div class="centered-box">
-            <h1>
-                Select Category
-            </h1>
-            <h2>
-                Categories : 
-            </h2>
-            <form action="/bal" method="POST">
-                {% for category in categories %}
-                    <input name="category" type="radio" value= "{{category.name}}" > {{category.name}}
-                {% endfor %}
-                <button type="submit"> SELECT </button>
-            </form>
+            <h1>Balance :</h1>
+            {% for cat in categories %}
+                <h2>{{cat.name}} : {{cat.get_balance()}}</h2>
+            {% endfor %}
         </div>
     </body>
 </html>

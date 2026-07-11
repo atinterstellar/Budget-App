@@ -62,17 +62,7 @@ def withdraw_cat():
 
 @app.route('/bal', methods = ['GET','POST'])
 def bal():
-    if request.method == 'POST':
-        chosen = request.form.get("category") 
-        return redirect(url_for('bal_cat', name = chosen))
     return render_template('bal.html', categories = main_app.categories)
-
-@app.route('/bal_cat', methods = ['GET','POST'])
-def bal_cat():
-    name = request.args.get("name")
-    chosen = main_app.get_category(name)
-    balance = chosen.get_balance()
-    return render_template('bal_cat.html' , balance = balance, chosen = chosen)
 
 @app.route('/master_balance')
 def master_balance():
@@ -99,6 +89,10 @@ def with_sav():
         Master.with_sav(float(amount))
         return redirect(url_for('view_sav'))
     return render_template('with_sav.html')
+
+@app.route('/guide')
+def guide():
+    return render_template('guide.html')
 
 if __name__ == '__main__' :
     app.run(host = '0.0.0.0' , port = 5101 , debug = True)

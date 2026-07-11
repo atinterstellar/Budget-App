@@ -193,8 +193,15 @@ def view_expenses_by_perc() :
     for cat in categories:
         perc= cat.get_exp() * 100 / total
         print(f'{cat.name} : {perc} ')
+Savings = Category('Savings')
 Food = Category('Food')
-rent = Category('Rent')
+Social = Category('Social')
+Commute = Category('Commute')
+Academic = Category('Academic')
+Care = Category('Care')
+Subscriptions = Category('Subscriptions')
+Buffer = Category('Buffer')
+Clothing = Category('Clothing')
 
 Master = master('Master')
 
