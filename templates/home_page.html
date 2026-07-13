@@ -13,6 +13,7 @@
                 Welcome!!
             </h2>
             <h2>Category Options</h2>
+            <br></br>
             <div class="button-row">
                 <button><a href="{{ url_for('ledger') }}">View Ledger</a></button>
                 <button><a href="{{url_for('deposit') }}">Deposit</a></button>
@@ -20,11 +21,11 @@
                 <button><a href="{{url_for('bal')}}">View Balance</a></button>
             </div>
         </div>
-        <br></br>
         <div class="centered-box">
             <h2>
                 Master Account
             </h2>
+            <br></br>
             <div class="button-row">
                 <button><a href="{{ url_for('master_balance') }}">View Balance</a></button>
                 <button><a href="{{url_for('deposit') }}">Deposit</a></button>
@@ -33,11 +34,10 @@
                 <button><a href="{{url_for('with_sav')}}">Withdraw Savings</a></button>    
             </div>
         </div>
-        <br></br>
         <div class="centered-box">
-            <h3>A Guide to Budgeting</h3>
+            <h2>A Guide to Budgeting</h2>
             <button><a href="{{url_for('guide')}}">Guide</a></button>
-            <h3>About</h3>
+            <h2>About</h2>
             <div class="button-row">
                 <button><a href="https://github.com/atinterstellar">GitHub</a></button>
                 <button><a href="https://www.linkedin.com/in/atin-kumar-7185162a5/">Linkedin</a></button>
