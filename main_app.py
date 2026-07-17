@@ -1,21 +1,27 @@
 import json
 import os
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+JSON_PATH = os.path.join(BASE_DIR, 'budget.json')
+
+print("JSON_PATH:", JSON_PATH)
+print("Exists?", os.path.exists(JSON_PATH))
+
 def add_to_file(category):
-    if os.path.exists('budget.json'):
-        with open('budget.json', 'r') as f:
+    if os.path.exists(JSON_PATH):
+        with open(JSON_PATH, 'r') as f:
             data = json.load(f)
     else:
         data = {}
 
     data[category.name] = {'ledger': category.ledger}
-    
-    with open('budget.json', 'w') as f:
+
+    with open(JSON_PATH, 'w') as f:
         json.dump(data, f, indent=4)
 
 def read_file(category):
-    if os.path.exists('budget.json'):
-        with open('budget.json', 'r') as f:
+    if os.path.exists(JSON_PATH):
+        with open(JSON_PATH, 'r') as f:
             data = json.load(f)
             if category.name in data:
                 category.ledger = data[category.name]['ledger']
@@ -25,8 +31,8 @@ def read_file(category):
         category.ledger = []
 
 def add_master_to_file(m):
-    if os.path.exists('budget.json'):
-        with open('budget.json', 'r') as f:
+    if os.path.exists(JSON_PATH):
+        with open(JSON_PATH, 'r') as f:
             data = json.load(f)
     else:
         data = {}
@@ -36,12 +42,12 @@ def add_master_to_file(m):
         'master_ledger': m.master_ledger
     }
 
-    with open('budget.json', 'w') as f:
+    with open(JSON_PATH, 'w') as f:
         json.dump(data, f, indent=4)
 
 def read_master_from_file(m):
-    if os.path.exists('budget.json'):
-        with open('budget.json', 'r') as f:
+    if os.path.exists(JSON_PATH):
+        with open(JSON_PATH, 'r') as f:
             data = json.load(f)
             if '__master__' in data:
                 m.savings = data['__master__']['savings']
