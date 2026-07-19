@@ -1,0 +1,114 @@
+{
+    "Savings": {
+        "ledger": [
+            {
+                "amount": 503.63,
+                "description": "11/6/26 - D"
+            }
+        ]
+    },
+    "Food": {
+        "ledger": [
+            {
+                "amount": 600.0,
+                "description": "11/6/26 - D"
+            },
+            {
+                "amount": -600.0,
+                "description": "Mistake"
+            },
+            {
+                "amount": 400.0,
+                "description": "11/6/26 - D"
+            },
+            {
+                "amount": -65.0,
+                "description": "17/6/26 - ice cream"
+            }
+        ]
+    },
+    "Social": {
+        "ledger": [
+            {
+                "amount": 500.0,
+                "description": "11/6/26 - D"
+            }
+        ]
+    },
+    "Commute": {
+        "ledger": [
+            {
+                "amount": 300.0,
+                "description": "11/6/26 - D"
+            }
+        ]
+    },
+    "Academic": {
+        "ledger": [
+            {
+                "amount": 250.0,
+                "description": "11/6/26 - D"
+            }
+        ]
+    },
+    "Care": {
+        "ledger": [
+            {
+                "amount": 200.0,
+                "description": "11/6/26 - D"
+            }
+        ]
+    },
+    "Subscriptions": {
+        "ledger": [
+            {
+                "amount": 200.0,
+                "description": "11/6/26 - D"
+            }
+        ]
+    },
+    "Buffer": {
+        "ledger": [
+            {
+                "amount": 400.0,
+                "description": "11/6/26 - D"
+            },
+            {
+                "amount": 200.0,
+                "description": "11/6/26 - D"
+            }
+        ]
+    },
+    "Clothing": {
+        "ledger": [
+            {
+                "amount": 200.0,
+                "description": "11/6/26 - D"
+            }
+        ]
+    },
+    "__cash__": {
+        "cash_ledger": [
+            {
+                "amount": 1800.0,
+                "description": ""
+            },
+            {
+                "amount": -100.0,
+                "description": ""
+            },
+            {
+                "amount": 100.0,
+                "description": ""
+            },
+            {
+                "amount": -1800.0,
+                "description": "Undo Everyth - Test"
+            },
+            {
+                "amount": 1800.0,
+                "description": "19/7/26"
+            }
+        ]
+    }
+}

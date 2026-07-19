@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-        <title> Get Balance - Budget App </title>
+        <title>Cash Balance - Budget App</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     </head>
     <body>
         <div class="centered-box">
-            <h1>Balance :</h1>
-            {% for cat in categories %}
-                <h2>{{cat.name}} : {{cat.get_balance()}}</h2>
-            {% endfor %}
+            <h1>Cash in Purse :</h1>
+            <h1>{{bal}}</h1>
             <button>
                 <a href="{{url_for('home')}}">HOME</a>
             </button>

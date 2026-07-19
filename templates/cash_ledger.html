@@ -7,9 +7,9 @@
     <body>
         <div class="centered-box">
             <h1>
-                Ledger for {{chosen.name}}
+                Ledger for Cash in Your Purse
             </h1>
-            {% for entry in chosen.ledger|reverse %}
+            {% for entry in ledger|reverse %}
                 <h2> Amount : {{entry.amount}} , Description : {{entry.description}} </h2>
             {% endfor %}
             <h2>

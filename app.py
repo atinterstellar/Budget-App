@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request,  redirect, url_for
 import main_app
-from main_app import Master
+from main_app import Master , cash
+
 
 app = Flask(__name__)
 
@@ -93,6 +94,34 @@ def with_sav():
 @app.route('/guide')
 def guide():
     return render_template('guide.html')
+
+@app.route('/cash_balance')
+def cash_balance() :
+    balance = cash.balance
+    return render_template('cash_balance.html' , bal = balance)
+
+@app.route('/cash_deposit', methods = ['GET','POST'])
+def cash_deposit() :
+    if request.method == 'POST' :
+        amount = request.form.get('amount')
+        desc = request.form.get('desc')
+        cash.deposit(float(amount),desc)
+        return redirect(url_for('cash_ledger'))
+    return render_template('cash_deposit.html')
+
+@app.route('/cash_trans', methods = ['GET','POST'])
+def cash_trans():
+    if request.method == 'POST' :
+        amount = request.form.get('amount')
+        desc = request.form.get('desc')
+        cash.withdraw(float(amount),desc)
+        return redirect(url_for('cash_ledger'))
+    return render_template('cash_trans.html')
+
+@app.route('/cash_ledger')
+def cash_ledger():
+    ledger = cash.ledger
+    return render_template('cash_ledger.html' , ledger = ledger)
 
 if __name__ == '__main__' :
     app.run(host = '0.0.0.0' , port = 5101 , debug = True)

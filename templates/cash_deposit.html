@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>DEPOSIT CASH - Budget App</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    </head>
+    <body>
+        <div class = "centered-box">
+            <h2>ENTER AMOUNT :</h2>
+            <form method="POST">
+                <input type="text" placeholder="Amount" name="amount" >
+                <input type="text" placeholder="DESCRIPTION" name="desc" > 
+                <button type="submit">Deposit</button>
+            </form>
+        </div>
+    </body>
+</html>

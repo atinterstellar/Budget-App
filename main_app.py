@@ -30,6 +30,8 @@ def read_file(category):
     else:
         category.ledger = []
 
+#-------#--------#---------#
+
 def add_master_to_file(m):
     if os.path.exists(JSON_PATH):
         with open(JSON_PATH, 'r') as f:
@@ -55,6 +57,33 @@ def read_master_from_file(m):
                 return
     m.savings = 0
     m.master_ledger = []
+
+#--------#--------#--------#
+
+def read_cash_from_file(c):
+    if os.path.exists(JSON_PATH):
+        with open(JSON_PATH, 'r') as f:
+            data = json.load(f)
+            if '__cash__' in data:
+                c.cash_ledger = data['__cash__']['cash_ledger']
+                return
+    c.cash_ledger = []
+
+def add_cash_to_file(c):
+    if os.path.exists(JSON_PATH):
+        with open(JSON_PATH, 'r') as f:
+            data = json.load(f)
+    else:
+        data = {}
+
+    data['__cash__'] = {
+        'cash_ledger': c.cash_ledger
+    }
+
+    with open(JSON_PATH, 'w') as f:
+        json.dump(data, f, indent=4)
+
+
 
 categories = []
 class master:
@@ -87,6 +116,41 @@ class master:
     def with_sav(self,amount) :
         self.savings -= amount
         add_master_to_file(self)
+
+class Cash:
+    def __init__(self,name):
+        self.name = name
+        read_cash_from_file(self)
+        self.ledger = self.cash_ledger
+        self.balance = 0
+        for i in self.ledger:
+            self.balance += i['amount']
+        categories.append(self)
+    
+    def deposit(self, amount, description=""):
+        if amount < 0:
+            return "Amount can't be -ve"
+        if not isinstance(amount , (int , float) ):
+            return "Amount must be integer"
+        self.ledger.append({"amount": amount, "description": description})
+        self.balance += amount
+        self.cash_ledger = self.ledger
+        add_cash_to_file(self)
+
+    def withdraw(self, amount, description=""):
+        if self.check_funds(amount):
+            self.ledger.append({"amount": -amount, "description": description})
+            self.balance -= amount
+            add_cash_to_file(self)
+            self.cash_ledger = self.ledger
+            return True
+        return False
+    
+    def get_balance(self):
+        return self.balance
+    
+    def check_funds(self, amount):
+        return amount <= self.get_balance()
 
 class Category:
     def __init__(self, name):
@@ -207,9 +271,10 @@ Academic = Category('Academic')
 Care = Category('Care')
 Subscriptions = Category('Subscriptions')
 Buffer = Category('Buffer')
-Clothing = Category('Clothing')
 
 Master = master('Master')
+
+cash = Cash('Cash')
 
 #--------SERVER CODE--------#
 

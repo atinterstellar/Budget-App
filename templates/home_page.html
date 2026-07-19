@@ -35,6 +35,17 @@
             </div>
         </div>
         <div class="centered-box">
+            <h2>
+                Cash in Purse
+            </h2>
+            <br></br>
+            <div class="button-row">
+                <button><a href="{{ url_for('cash_balance') }}">View Balance</a></button>
+                <button><a href="{{url_for('cash_deposit') }}">Deposit</a></button>
+                <button><a href="{{url_for('cash_trans') }}">Withdraw</a></button>          
+            </div>
+        </div>
+        <div class="centered-box">
             <h2>A Guide to Budgeting</h2>
             <button><a href="{{url_for('guide')}}">Guide</a></button>
             <h2>About</h2>
