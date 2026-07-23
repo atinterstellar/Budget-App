@@ -40,7 +40,6 @@ def add_master_to_file(m):
         data = {}
 
     data['__master__'] = {
-        'savings': m.savings,
         'master_ledger': m.master_ledger
     }
 
@@ -52,7 +51,6 @@ def read_master_from_file(m):
         with open(JSON_PATH, 'r') as f:
             data = json.load(f)
             if '__master__' in data:
-                m.savings = data['__master__']['savings']
                 m.master_ledger = data['__master__']['master_ledger']
                 return
     m.savings = 0
@@ -106,16 +104,6 @@ class master:
                 print(f'{trans}% of {amount} added to {i.name}')
                 self.master_ledger.append({ 'amount' : -per_cat , 'description' : f'To {i.name}' })
 
-    def save(self, amount) :
-        self.savings += amount
-        add_master_to_file(self)
-
-    def view_savings(self) :
-        return self.savings
-    
-    def with_sav(self,amount) :
-        self.savings -= amount
-        add_master_to_file(self)
 
 class Cash:
     def __init__(self,name):
@@ -147,7 +135,7 @@ class Cash:
         return False
     
     def get_balance(self):
-        return self.balance
+        return round(self.balance,2)
     
     def check_funds(self, amount):
         return amount <= self.get_balance()
@@ -179,7 +167,7 @@ class Category:
         return False
 
     def get_balance(self):
-        return self.balance
+        return round(self.balance , 2 )
 
     def transfer(self, amount, category):
         if self.check_funds(amount):
