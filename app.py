@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request,  redirect, url_for
 import main_app
-from main_app import Master , cash
+from main_app import Master , cash , transfer
 
 
 app = Flask(__name__)
@@ -107,6 +107,8 @@ def transfer():
     if method == 'POST' :
         cat1 = request.forms.get('cat1')
         cat2 = request.forms.get('cat2')
+        amt = request.forms.get('amt')
+        cat1.transfer(amt , cat2)
 
     
 
