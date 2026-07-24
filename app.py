@@ -102,5 +102,13 @@ def cash_ledger():
     ledger = cash.ledger
     return render_template('cash_ledger.html' , ledger = ledger)
 
+@app.route('/transfer', methods = ['GET', 'POST')
+def transfer():
+    if method == 'POST' :
+        cat1 = request.forms.get('cat1')
+        cat2 = request.forms.get('cat2')
+
+    
+
 if __name__ == '__main__' :
     app.run(host = '0.0.0.0' , port = 5101 , debug = True)
